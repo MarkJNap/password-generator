@@ -9,21 +9,22 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
 const number = "0123456789"
 const symbol = " !#$%&()*+,-./:;<=>?@[]^_{|}~"
-const empty = ""
 
 // Function for a random char for each type (started here might end up combining and then getting random chars)
-function randomLower() {
-  return alphabet[Math.floor(Math.random() * alphabet.length)]
-}
-function randomUpper() {
-  return alphabet.toUpperCase()[Math.floor(Math.random() * alphabet.length)]
-}
-function randomNumber() {
-  return number[Math.floor(Math.random() * number.length)]
-}
-function randomSymbol() {
-  return symbol[Math.floor(Math.random() * symbol.length)]
-}
+// function randomLower() {
+//   return alphabet[Math.floor(Math.random() * alphabet.length)]
+// }
+// function randomUpper() {
+//   return alphabet.toUpperCase()[Math.floor(Math.random() * alphabet.length)]
+// }
+// function randomNumber() {
+//   return number[Math.floor(Math.random() * number.length)]
+// }
+// function randomSymbol() {
+//   return symbol[Math.floor(Math.random() * symbol.length)]
+// }
+
+
 // console.log(randomLower());
 // console.log(randomUpper());
 // console.log(randomNumber());
@@ -32,47 +33,53 @@ function randomSymbol() {
 
 // Basic button press layout for testing interactions
 var generatePassword = function() {
-  var passLength = window.prompt("Please enter a length between 8 and 128", "8 - 128");
+  var charsMax = ""
+  var passLength = window.prompt("Please enter a length between 8 and 128");
   // If cancel is pressed on first box stops function
   if (!passLength) {
     return passwordText = "Press Generate Password for a new password";
   }
+
   var genLower = window.confirm("Do you want lowercase letters?");
   var genUpper = window.confirm("Do you want uppercase letters?");
   var genNumber = window.confirm("Do you want numbers?");
   var genSymbol = window.confirm("Do you want symbols?");
+
   // If cancel is pressed on all
   if ((!genLower) && (!genUpper) && (!genNumber) && (!genSymbol)) {
     return passwordText = "Please pick a valid way to generate a password.";
   }
+
+
+  // To change passLength to a number
+  var passLengthNumber = (passLength * 1);
   // breaks if not a number is entered TODO
-  if ((passLength < 7) || (passLength > 128)) {
+  if ((passLengthNumber < 7) || (passLengthNumber > 128)) {
     return passwordText = "Please enter a valid number.";
   }
 
-  // To currently just visualise them working with random function
+  // Adds characters if they are true
   if (genLower) {
-    randomLower();
-        console.log(randomLower());
+    charsMax = charsMax + alphabet
   }  
   if (genUpper) {
-    randomUpper();
-        console.log(randomUpper());
+    charsMax = charsMax + alphabet.toUpperCase()
   }  
   if (genNumber) {
-    randomNumber();
-        console.log(randomNumber());
+    charsMax = charsMax + number
   }  
   if (genSymbol) {
-    randomSymbol();
-        console.log(randomSymbol());
+    charsMax = charsMax + symbol
   }
-
+  // Empty string to fill with password
+  var passGeneration = "";
+  for (var i = 0; i < passLengthNumber; i++) {
+    var randomChar = charsMax[Math.floor(Math.random() * charsMax.length)]
+    passGeneration = passGeneration + randomChar
+  }
+  console.log(passGeneration);
+  return passwordText = passGeneration
 }
-// create array containing all true new approach thinking about
-var charsMax = [...empty, ...number];
-console.log(charsMax);
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
