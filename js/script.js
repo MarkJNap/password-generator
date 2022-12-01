@@ -1,8 +1,8 @@
 
 // Possible password characters
-const alphabet = "abcdefghijklmnopqrstuvwxyz"
-const number = "0123456789"
-const symbol = " !#$%&()*+,-./:;<=>?@[]^_{|}~"
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+const number = "0123456789";
+const symbol = " !#$%&()*+,-./:;<=>?@[]^_{|}~";
 
 // Start of main function for creating new random password
 var generatePassword = function() {
@@ -35,16 +35,16 @@ var generatePassword = function() {
   // Adds characters together to a new empty string if they were selected by the user
   var charsMax = ""
   if (lowerOption) {
-    charsMax = charsMax + alphabet
+    charsMax = charsMax + alphabet;
   }  
   if (upperOption) {
-    charsMax = charsMax + alphabet.toUpperCase()
+    charsMax = charsMax + alphabet.toUpperCase();
   }  
   if (numberOption) {
-    charsMax = charsMax + number
+    charsMax = charsMax + number;
   }  
   if (symbolOption) {
-    charsMax = charsMax + symbol
+    charsMax = charsMax + symbol;
   }
 
   // Empty string to fill with password
@@ -52,10 +52,10 @@ var generatePassword = function() {
 
   //Loop to generate the password to the length chosen
   for (var i = 0; i < passLengthNumber; i++) {
-    var randomChar = charsMax[Math.floor(Math.random() * charsMax.length)]
-    passwordGeneration = passwordGeneration + randomChar
+    var randomChar = charsMax[Math.floor(Math.random() * charsMax.length)];
+    passwordGeneration = passwordGeneration + randomChar;
   }
-  return passwordText = passwordGeneration
+  return passwordText = passwordGeneration;
 }
 
 // Get references to the #generate element
