@@ -16,6 +16,7 @@ They are prompted with Length (8-128), and then to include Lowercase, Uppercase,
 The github pages link is: https://markjnap.github.io/password-generator/
 
 Screenshot of complete webpage
+
 [<img src="/assets/password-generator-demo.gif" alt="Password Generator Demo"/>](/assets/password-generator-demo.gif)
 ## Credits
 Mark Napolitano
